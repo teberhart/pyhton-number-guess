@@ -4,7 +4,7 @@ MIN_NUMBER = 0
 MAX_NUMBER = 10
 
 def init_number():
-    return random.randint(MIN_NUMBER, MAX_NUMBER)
+    return random.randint(MIN_NUMBER, MAX_NUMBER + 1)
 
 def player_guess():
     print("It's now your turn to guess a number. Think carefully.")
