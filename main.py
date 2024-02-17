@@ -4,10 +4,18 @@ MIN_NUMBER = 0
 MAX_NUMBER = 10
 
 def init_number():
-    pass
+    return random.randint(MIN_NUMBER, MAX_NUMBER)
 
 def player_guess():
-    pass
+    print("It's now your turn to guess a number. Think carefully.")
+    while True:
+        guess = input("What is your guess ? ")
+        if guess.isdigit():
+            return guess
+        else:
+            print("I won't count that one ... It has to be a digit.")
+
+
 
 def play():
     print("Very well, player. Let's start with an easy question ...")
@@ -17,10 +25,14 @@ def play():
     stillPlaying = True
     while stillPlaying:
         print(f"I'm going to select a number between {MIN_NUMBER} and {MAX_NUMBER}. Your goal is to guess it as quickly as possible.")
-        toGuess = init_number()
-        guesses = 0
+        toGuess = str(init_number())
+        guesses = 1
 
-        #Player guesses here
+        playerGuess = player_guess()
+
+        while playerGuess != toGuess:
+            guesses += 1
+            playerGuess = player_guess()
 
         print(f"It took you {guesses} to find the right number.")
 
